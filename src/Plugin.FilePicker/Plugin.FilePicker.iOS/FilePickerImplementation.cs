@@ -129,8 +129,8 @@ namespace Plugin.FilePicker
             }
 
             // NOTE: Importing makes a local copy of the document, while opening opens the document directly
-            var documentPicker = new UIDocumentPickerViewController(allowedUtis, UIDocumentPickerMode.Import);
-            //var documentPicker = new UIDocumentPickerViewController(allowedUtis, UIDocumentPickerMode.Open);
+            //var documentPicker = new UIDocumentPickerViewController(allowedUtis, UIDocumentPickerMode.Import);
+            var documentPicker = new UIDocumentPickerViewController(allowedUtis, UIDocumentPickerMode.Open);
 
             documentPicker.DidPickDocument += DocumentPicker_DidPickDocument;
             documentPicker.WasCancelled += DocumentPicker_WasCancelled;
