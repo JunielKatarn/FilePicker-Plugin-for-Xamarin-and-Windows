@@ -81,7 +81,7 @@ namespace Plugin.FilePicker
 
             OnFilePicked(new FilePickerEventArgs(dataBytes, filename, pathname));
         }
-        
+
         /// <summary>
         /// Handles when the file picker was cancelled. Either in the
         /// popup menu or later on.
@@ -147,7 +147,8 @@ namespace Plugin.FilePicker
 
                 tcs?.SetResult(new FileData(e.FilePath, e.FileName, () =>
                 {
-                    return new FileStream(e.FilePath, FileMode.Open, FileAccess.Read);
+                    var url = new Foundation.NSUrl(e.FilePath);
+                    return new FileStream(url.Path, FileMode.Open, FileAccess.Read);
                 }));
             };
 
